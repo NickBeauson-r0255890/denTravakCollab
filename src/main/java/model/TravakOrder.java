@@ -18,10 +18,10 @@ public class TravakOrder {
     private UUID sandwichId;
     private String name;
     private BreadType breadType;
-    @Temporal(TemporalType.DATE) //Date Only  //LocalDate
+    @Temporal(TemporalType.DATE) //Date Only
     //@Temporal(TemporalType.TIMESTAMP) //Date + Time
     @JsonFormat(pattern="yyyy-MM-dd'T'hh:mm:ss.SSS")
-    public Date creationDate;
+    public Date creationDate;  //LocalDate!
     private BigDecimal price;
     private String mobilePhoneNumber;
 

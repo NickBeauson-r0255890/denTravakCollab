@@ -19,16 +19,15 @@ public class OrderController {
         this.repository = repository;
     }
 
-    @RequestMapping(value = "/getOrders", method = RequestMethod.GET)
-    public List<TravakOrder> getOrders() {
-        return repository.findAll();
-    }
-
+    //Get of get?date=...
     @RequestMapping(value = "/orders", method = RequestMethod.GET)
-    public List<TravakOrder> getOrder(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd")  Date searchDate) throws ParseException {
+    public List<TravakOrder> getOrder(@RequestParam(value = "date" , required = false) @DateTimeFormat(pattern="yyyy-MM-dd")  Date searchDate) throws ParseException {
         //Date date = new SimpleDateFormat("yyyy-MM-dd").parse(searchDate);
         //System.out.println(searchDate);
-        return repository.findAllByCreationDate(searchDate);
+        if(searchDate != null){
+            return repository.findAllByCreationDate(searchDate);
+        }
+        return repository.findAll();
     }
 
     @RequestMapping(value = "/orders", method = RequestMethod.POST)
