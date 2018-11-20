@@ -1,6 +1,5 @@
 package model;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +14,8 @@ public class Sandwich {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private String name;
-    private BigDecimal price;
+    private BigDecimal price;       //TODO:  Bigdecimal -> JSON serialize  2 decimals
+                                    //https://stackoverflow.com/questions/48662635/how-to-display-bigdecimal-number-with-trailing-zero-in-a-json-not-as-string
     private String ingredients;
 
     public Sandwich(){
@@ -23,6 +23,14 @@ public class Sandwich {
 
     public static SandwichBuilder aSandwich(){
         return new SandwichBuilder();
+    }
+
+    public UUID getId(){
+        return this.id;
+    }
+
+    protected void setId(UUID id){
+        this.id= id;
     }
 
     public String getName() {
@@ -36,6 +44,7 @@ public class Sandwich {
     public BigDecimal getPrice() {
         return price;
     }
+
 
     public void setPrice(BigDecimal price) {
         this.price = price;
@@ -53,7 +62,6 @@ public class Sandwich {
 
     public static class SandwichBuilder{
 
-
         private UUID id;
         private String name;
         private BigDecimal price;
@@ -68,7 +76,7 @@ public class Sandwich {
         }
 
         public SandwichBuilder withPrice(BigDecimal price) {
-            this.price = price;
+            this.price = price.setScale(2,BigDecimal.ROUND_HALF_UP);
             return this;
         }
 
@@ -86,7 +94,6 @@ public class Sandwich {
         }
 
     }
-
 
 
 }
