@@ -21,10 +21,16 @@ public class SandwichController {
         this.repository = repository;
     }
 
+    @RequestMapping
+    public String homepage(){
+        return "Welkom bij Den Travak!";
+    }
+
+
     @RequestMapping(value = "/sandwiches", method = RequestMethod.GET)
-    public List<Sandwich> getSandwiches() {
-        List<Sandwich> sandwiches = repository.findAll();
-        return sandwiches;
+    public Iterable<Sandwich> getSandwiches() {
+        return repository.findAll();
+
     }
 
     @RequestMapping(value="/sandwiches/{id}")

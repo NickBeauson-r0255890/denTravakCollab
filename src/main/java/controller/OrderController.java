@@ -19,22 +19,16 @@ public class OrderController {
         this.repository = repository;
     }
 
-    //Get of get?date=...
+
     @RequestMapping(value = "/orders", method = RequestMethod.GET)
-    public List<TravakOrder> getOrder(@RequestParam(value = "date" , required = false) @DateTimeFormat(pattern="yyyy-MM-dd")  Date searchDate) throws ParseException {
-        //Date date = new SimpleDateFormat("yyyy-MM-dd").parse(searchDate);
-        //System.out.println(searchDate);
-        if(searchDate != null){
-            return repository.findAllByCreationDate(searchDate);
-        }
-        return repository.findAll();
+    public Iterable<TravakOrder> getOrder() {
+       return repository.findAll();
     }
 
     @RequestMapping(value = "/orders", method = RequestMethod.POST)
-    public TravakOrder addOrder(@RequestBody TravakOrder travakOrder) {
-        repository.save(travakOrder);
-        //System.out.println(travakOrder.getCreationDate());
-        return travakOrder;
+    public TravakOrder addOrder(@RequestBody TravakOrder order) {
+        repository.save(order);
+        return order;
     }
 
 }
