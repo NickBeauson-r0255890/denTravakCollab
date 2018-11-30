@@ -1,5 +1,5 @@
 import db.OrderRepository;
-import model.TravakOrder;
+import model.SandwichOrder;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,7 +13,7 @@ public class RepositoryTest {
 
     @Test
     public void findByDate() throws ParseException {
-        List<TravakOrder> result = repository.findAllByCreationDate(
+        List<SandwichOrder> result = repository.findAllByCreationDate(
                 new SimpleDateFormat("yyyy-MM-dd").parse("2018-11-18"));
 
     }

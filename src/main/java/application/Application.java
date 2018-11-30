@@ -3,7 +3,7 @@ package application;
 import db.OrderRepository;
 import db.SandwichRepository;
 import model.Sandwich;
-import model.TravakOrder;
+import model.SandwichOrder;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -38,12 +38,12 @@ public class Application {
 
             sandwichRepository.save(sandwich);
 
-            TravakOrder order = new TravakOrder();
+            SandwichOrder order = new SandwichOrder();
             order.setName("First order");
             order.setCreationDate(LocalDateTime.now());
             order.setPrice(new BigDecimal("10.99"));
             order.setId(UUID.randomUUID());
-            order.setBreadType(TravakOrder.BreadType.WRAP);
+            order.setBreadType(SandwichOrder.BreadType.WRAP);
             order.setMobilePhoneNumber("123456789");
 
 

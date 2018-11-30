@@ -1,14 +1,10 @@
 package controller;
 
 import db.OrderRepository;
-import model.TravakOrder;
+import model.SandwichOrder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
-import java.util.Date;
-import java.util.List;
 @RestController
 public class OrderController {
 
@@ -21,12 +17,12 @@ public class OrderController {
 
 
     @RequestMapping(value = "/orders", method = RequestMethod.GET)
-    public Iterable<TravakOrder> getOrder() {
+    public Iterable<SandwichOrder> getOrder() {
        return repository.findAll();
     }
 
     @RequestMapping(value = "/orders", method = RequestMethod.POST)
-    public TravakOrder addOrder(@RequestBody TravakOrder order) {
+    public SandwichOrder addOrder(@RequestBody SandwichOrder order) {
         repository.save(order);
         return order;
     }

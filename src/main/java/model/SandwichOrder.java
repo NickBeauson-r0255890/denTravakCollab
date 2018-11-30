@@ -9,7 +9,7 @@ import java.util.UUID;
 
 
 @Entity
-public class TravakOrder {
+public class SandwichOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,7 +28,7 @@ public class TravakOrder {
         WRAP
     }
 
-    public TravakOrder() {
+    public SandwichOrder() {
 
     }
 
