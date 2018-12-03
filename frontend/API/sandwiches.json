@@ -1,10 +1,17 @@
-[{"name": "Smos",
-    "ingredients":"Kaas en hesp",
-    "price": 3.50
+[
+    {
+        "name": "David",
+        "ingredients": "Tomaat, americain",
+        "price": 2.65
     },
     {
-    "name":"Gezond",
-    "ingredients": "groenten",
-    "price": 4.00
-    }]
-    
+        "name": "Els",
+        "ingredients": "Zalm, zon gedroogde tomaat",
+        "price": 3.65
+    },
+    {
+        "name": "David",
+        "ingredients": "Tomaat, americain",
+        "price": 4.65
+    }
+]
