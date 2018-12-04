@@ -13,7 +13,6 @@ import java.util.UUID;
 @RestController
 public class SandwichController {
 
-
     SandwichRepository repository;
 
     @Autowired
@@ -26,11 +25,9 @@ public class SandwichController {
         return "Welkom bij Den Travak!";
     }
 
-
     @RequestMapping(value = "/sandwiches", method = RequestMethod.GET)
     public Iterable<Sandwich> getSandwiches() {
         return repository.findAll();
-
     }
 
     @RequestMapping(value="/sandwiches/{id}")
@@ -59,7 +56,4 @@ public class SandwichController {
     public void deleteSandwich(@PathVariable("id") UUID id){
         repository.deleteById(id);
     }
-
-
-
 }

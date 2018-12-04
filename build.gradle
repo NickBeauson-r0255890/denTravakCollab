@@ -52,3 +52,10 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+
+jib {
+    to {
+        image = "den-travak-app:0.0.1-SNAPSHOT"
+    }
+    allowInsecureRegistries = true
+}
