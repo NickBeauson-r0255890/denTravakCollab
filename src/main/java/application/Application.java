@@ -33,12 +33,31 @@ public class Application {
     @Bean
     public CommandLineRunner demo(SandwichRepository sandwichRepository, OrderRepository orderRepository) {
         return (args) -> {
-            Sandwich sandwich = new Sandwich();
-            sandwich.setName("Test Sandwich");
-            sandwich.setIngredients("Test ingrediënten");
-            sandwich.setPrice(new BigDecimal("5.99"));
+            Sandwich kaas = new Sandwich();
+            kaas.setName("Smos kaas");
+            kaas.setIngredients("Kaas, tomaat, sla, ei, mayonnaise");
+            kaas.setPrice(new BigDecimal("3.50"));
 
-            sandwichRepository.save(sandwich);
+            Sandwich hesp = new Sandwich();
+            hesp.setName("Smos hesp");
+            hesp.setIngredients("hesp, tomaat, sla, ei, mayonnaise");
+            hesp.setPrice(new BigDecimal("3.50"));
+
+            Sandwich smoske = new Sandwich();
+            smoske.setName("Smoske");
+            smoske.setIngredients("kaas, hesp, tomaat, sla, ei, mayonnaise");
+            smoske.setPrice(new BigDecimal("4.00"));
+
+            Sandwich martino = new Sandwich();
+            martino.setName("Martino");
+            martino.setIngredients("martino, ui");
+            martino.setPrice(new BigDecimal("3.50"));
+
+            sandwichRepository.save(kaas);
+            sandwichRepository.save(hesp);
+            sandwichRepository.save(smoske);
+            sandwichRepository.save(martino);
+
 
             SandwichOrder order = new SandwichOrder();
             order.setName("First order");
