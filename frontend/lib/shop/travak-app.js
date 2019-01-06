@@ -20,6 +20,11 @@ class DenTravakApp extends DenTravakAbstractElement {
 
     showAdminpage(){
         // to do
+        this.byCss(`travak-admin`).classList.remove('hidden');
+        //this.byCss(`travak-editsandwich`).classList.remove('hidden');
+        //this.byCss(`travak-order-list`).classList.remove('hidden');
+        //this.byCss(`travak-sandwishes-list`).classList.remove('hidden');
+
     }
 
     showSandwichList() {
