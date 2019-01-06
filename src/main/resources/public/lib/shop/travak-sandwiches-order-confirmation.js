@@ -30,8 +30,9 @@ class DenTravakSandwichesOrderConfirmation extends DenTravakAbstractElement {
                     },
                     body: JSON.stringify(recommendedItem),
                 })
-                .then(response => response.json())
-                .then(resAsJson => alert('Thanks for the rating'));
+                //.then(response => response.json())
+                .then(response => this.app().dispatchEvent(new CustomEvent('show-sandwich-list', {detail: recommendation})));
+                //.then(resAsJson => alert('Thanks for the rating'));
                 
             }));
     }
