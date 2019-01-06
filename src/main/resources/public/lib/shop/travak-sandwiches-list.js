@@ -4,13 +4,13 @@ class DenTravakSandwichesList extends DenTravakAbstractElement {
 
     connectedCallback() {
         super.connectedCallback();
-        fetch('http://localhost:8080/sandwiches') //'/api/sandwiches.json'
+        fetch('/den-travak/api/sandwiches.json')
             .then(resp => resp.json())
             .then(json => this.updateSandwichesList(json));
     }
 
     updateSandwichesList(sandwiches) {
-        let sandwichesList = this.byId('sandwiches'); //verwijzing naar <ul id="sandwiches"></ul>
+        let sandwichesList = this.byId('sandwiches');
         //sandwichesList.innerHTML = ``;
         sandwiches.forEach(sandwich => {
             let sandwichEl = htmlToElement(this.getSandwichTemplate(sandwich));
@@ -28,7 +28,6 @@ class DenTravakSandwichesList extends DenTravakAbstractElement {
             </style>
             <div class="animate">
                 <h3>Welkom bij den Travak</h3>
-                <button id="admin" type="button" class="btn btn-primary">Admin</button>
                 <h4>Kies je broodje</h4>
                 <div>
                 <ul id="sandwiches" class="list-group">

@@ -1,6 +1,7 @@
 import DenTravakAbstractElement from '../travak-abstract-element.js';
 import './travak-sandwiches-list.js';
 import './travak-sandwiches-checkout.js';
+import './travak-sandwiches-login.js';
 import './travak-sandwiches-order-confirmation.js';
 
 class DenTravakApp extends DenTravakAbstractElement {
@@ -15,11 +16,6 @@ class DenTravakApp extends DenTravakAbstractElement {
         this.addEventListener('checkout', (e) => this.showCheckoutPage(e.detail));
         this.addEventListener('order-succeeded', (e) => this.showOrderConfirmationPage(e.detail));
         this.addEventListener('show-sandwich-list', (e) => this.showSandwichList());
-        this.addEventListener('admin', (e)=> this.showAdminPage(e.detail));
-    }
-
-    showAdminpage(){
-        // to do
     }
 
     showSandwichList() {
@@ -28,15 +24,15 @@ class DenTravakApp extends DenTravakAbstractElement {
         this.byCss(`travak-sandwiches-order-confirmation`).classList.add('hidden');
     }
 
-    showCheckoutPage(sandwich) {    
+    showCheckoutPage(sandwich) {
         this.byCss(`travak-sandwiches-checkout`).init(sandwich);
         this.byCss(`travak-sandwiches-list`).classList.add('hidden');
         this.byCss(`travak-sandwiches-checkout`).classList.remove('hidden');
         this.byCss(`travak-sandwiches-order-confirmation`).classList.add('hidden');
     }
 
-    showOrderConfirmationPage(sandwich) {
-        this.byCss(`travak-sandwiches-order-confirmation`).init(sandwich);
+    showOrderConfirmationPage(order) {
+        this.byCss(`travak-sandwiches-order-confirmation`).init(order);
         this.byCss(`travak-sandwiches-list`).classList.add('hidden');
         this.byCss(`travak-sandwiches-checkout`).classList.add('hidden');
         this.byCss(`travak-sandwiches-order-confirmation`).classList.remove('hidden');
