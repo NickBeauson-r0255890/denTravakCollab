@@ -2,16 +2,8 @@ package controller;
 
 import db.SandwichRepository;
 import model.Sandwich;
-import model.SandwichPreferences;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestClientException;
-import org.springframework.web.client.RestTemplate;
 
-import javax.inject.Inject;
-import javax.naming.ServiceUnavailableException;
-import java.net.URI;
-import java.util.Optional;
 import java.util.UUID;
 
 //import javax.inject.Inject;
@@ -19,15 +11,16 @@ import java.util.UUID;
 @RestController
 public class SandwichController {
 
-    SandwichRepository repository;
+    SandwichRepository sandwichRepository;
 
+    /*
     @Inject
     private SandwichRepository sandwichRepository;
     @Inject
     private DiscoveryClient discoveryClient;
     @Inject
     private RestTemplate restTemplate;
-
+*/
 
     @RequestMapping
     public String homepage() {
@@ -36,51 +29,51 @@ public class SandwichController {
 
     @RequestMapping(value = "/sandwiches", method = RequestMethod.GET)
     public Iterable<Sandwich> getSandwiches() {
-        try {
-            SandwichPreferences preferences = getPreferences("ronald.dehuysser@ucll.be");
+       // try {
+           // SandwichPreferences preferences = getPreferences("ronald.dehuysser@ucll.be");
             //TODO: sort allSandwiches by float in preferences
-            Iterable<Sandwich> allSandwiches = repository.findAll();
+            Iterable<Sandwich> allSandwiches = sandwichRepository.findAll();
             return allSandwiches;
-        } catch (ServiceUnavailableException e) {
-            return repository.findAll();
-        }
+       // } catch (ServiceUnavailableException e) {
+          //  return sandwichRepository.findAll();
+        //}
     }
 
-    private Float rating(SandwichPreferences preferences, Sandwich sandwich) {
+  /*  private Float rating(SandwichPreferences preferences, Sandwich sandwich) {
         return preferences.getRatingForSandwich(sandwich.getId());
-    }
+    }*/
 
     @RequestMapping(value = "/sandwiches/{id}")
     public Sandwich getSandwich(@PathVariable("id") UUID id) {
-        Sandwich sandwich = repository.findById(id).get();
+        Sandwich sandwich = sandwichRepository.findById(id).get();
         return sandwich;
     }
 
     @RequestMapping(value = "/sandwiches", method = RequestMethod.POST)
     public Sandwich addSandwich(@RequestBody Sandwich sandwich) {
-        repository.save(sandwich);
+        sandwichRepository.save(sandwich);
         return sandwich;
     }
 
     @RequestMapping(value = "/sandwiches/{id}", method = RequestMethod.PUT)
     public Sandwich updateSandwich(@PathVariable("id") UUID id, @RequestBody Sandwich sandwich) {
-        Sandwich OldSandwich = repository.findById(id).get();
+        Sandwich OldSandwich = sandwichRepository.findById(id).get();
         OldSandwich.setName(sandwich.getName());
         OldSandwich.setPrice(sandwich.getPrice());
         OldSandwich.setIngredients(sandwich.getIngredients());
-        repository.save(OldSandwich);
+        sandwichRepository.save(OldSandwich);
         return OldSandwich;
     }
 
     @RequestMapping(value = "/deleteSandwich/{id}", method = RequestMethod.DELETE)
     public void deleteSandwich(@PathVariable("id") UUID id) {
-        repository.deleteById(id);
+        sandwichRepository.deleteById(id);
     }
 
 
 
 
-    public Optional<URI> recommendationServiceUrl() {
+  /*  public Optional<URI> recommendationServiceUrl() {
         return discoveryClient.getInstances("recommendation")
                 .stream()
                 .map(si -> si.getUri())
@@ -95,5 +88,5 @@ public class SandwichController {
         return restTemplate
                 .getForEntity(service, SandwichPreferences.class)
                 .getBody();
-    }
+    }*/
 }

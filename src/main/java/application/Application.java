@@ -1,34 +1,28 @@
 package application;
 
-import db.OrderRepository;
-import db.SandwichRepository;
-import model.Sandwich;
-import model.SandwichOrder;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.UUID;
 
 
 @SpringBootApplication
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 public class Application {
+
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
 
-    @Bean
+/*    @Bean
     public CommandLineRunner demo(SandwichRepository sandwichRepository, OrderRepository orderRepository) {
+
         return (args) -> {
             //Sandwich kaas = Sandwich.aDefaultSandwich()
             //.withName("Kaas")
@@ -67,12 +61,13 @@ public class Application {
             orderRepository.save(order);
 
         };
-    }
+    }*/
 
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
+
 
     @Configuration
     public class WebConfig implements WebMvcConfigurer {
