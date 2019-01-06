@@ -75,6 +75,7 @@ class DenTravakSandwichesCheckout extends DenTravakAbstractElement {
                     <label for="mobile-phone-number"><h4>Je GSM Nummer</h4></label>
                     <input type="text" class="form-control" id="mobile-phone-number" placeholder="0487/12 34 56">
                 </div>
+
                 <button id="order-button" class="btn btn-primary active">Bestellen</button>
             </div>
         `;

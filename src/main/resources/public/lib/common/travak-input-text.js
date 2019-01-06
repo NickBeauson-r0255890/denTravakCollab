@@ -1,7 +1,7 @@
 import DenTravakAbstractElement from '../travak-abstract-element.js';
 
 class InputTextFormGroup extends DenTravakAbstractElement {
-
+    
     connectedCallback() {
         if(!this.getAttribute('id')) throw 'id is required';
         if(!this.getAttribute('label')) throw 'label is required';
@@ -29,5 +29,5 @@ class InputTextFormGroup extends DenTravakAbstractElement {
     field() {
         return this.shadowRoot.querySelector(`#fg-${this.getAttribute('id')}`);
     }
-}
-customElements.define('travak-input-text', InputTextFormGroup);
+  }
+  customElements.define('travak-input-text', InputTextFormGroup);
