@@ -15,12 +15,12 @@ class DenTravakApp extends DenTravakAbstractElement {
         this.addEventListener('checkout', (e) => this.showCheckoutPage(e.detail));
         this.addEventListener('order-succeeded', (e) => this.showOrderConfirmationPage(e.detail));
         this.addEventListener('show-sandwich-list', (e) => this.showSandwichList());
-        this.addEventListener('admin', (e)=> this.showAdminPage(e.detail));
+       // this.addEventListener('admin', (e)=> this.showAdminPage(e.detail));
     }
 
     showAdminpage(){
-        // to do
-        this.byCss(`travak-admin`).classList.remove('hidden');
+        
+        //this.byCss(`travak-admin`).classList.remove('hidden');
         //this.byCss(`travak-editsandwich`).classList.remove('hidden');
         //this.byCss(`travak-order-list`).classList.remove('hidden');
         //this.byCss(`travak-sandwishes-list`).classList.remove('hidden');

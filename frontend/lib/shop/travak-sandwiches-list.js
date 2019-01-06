@@ -28,7 +28,6 @@ class DenTravakSandwichesList extends DenTravakAbstractElement {
             </style>
             <div class="animate">
                 <h3>Welkom bij den Travak</h3>
-                <button id="admin" type="button" class="btn btn-primary">Admin</button>
                 <h4>Kies je broodje</h4>
                 <div>
                 <ul id="sandwiches" class="list-group">
