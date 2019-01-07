@@ -1,17 +1,29 @@
 package application;
 
+import db.OrderRepository;
+import db.SandwichRepository;
+import model.Sandwich;
+import model.SandwichOrder;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 
 @SpringBootApplication
 //@EnableDiscoveryClient
+@EnableJpaRepositories(basePackageClasses = SandwichRepository.class)
+@EntityScan(basePackageClasses=Sandwich.class)
 public class Application {
 
 
@@ -20,7 +32,7 @@ public class Application {
     }
 
 
-/*    @Bean
+   @Bean
     public CommandLineRunner demo(SandwichRepository sandwichRepository, OrderRepository orderRepository) {
 
         return (args) -> {
@@ -61,7 +73,7 @@ public class Application {
             orderRepository.save(order);
 
         };
-    }*/
+    }
 
     @Bean
     public RestTemplate restTemplate() {

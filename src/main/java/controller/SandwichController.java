@@ -2,6 +2,7 @@ package controller;
 
 import db.SandwichRepository;
 import model.Sandwich;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -11,8 +12,13 @@ import java.util.UUID;
 @RestController
 public class SandwichController {
 
+    @Autowired
     SandwichRepository sandwichRepository;
 
+
+    public SandwichController(SandwichRepository sandwichRepository) {
+        this.sandwichRepository = sandwichRepository;
+    }
     /*
     @Inject
     private SandwichRepository sandwichRepository;
