@@ -66,3 +66,8 @@ jib {
     }
     allowInsecureRegistries = true
 }
+/*
+
+bootRun {
+    jvmArgs += "-Dspring.cloud.bootstrap.enabled=false"
+}*/
