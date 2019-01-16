@@ -1,5 +1,8 @@
 package model;
 
+import be.ucll.da.dentravak.model.Sandwich;
+import be.ucll.da.dentravak.model.SandwichOrder;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;

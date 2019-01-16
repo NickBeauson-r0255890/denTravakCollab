@@ -1,5 +1,7 @@
 package model;
 
+import be.ucll.da.dentravak.model.Sandwich;
+
 import java.math.BigDecimal;
 
 public class SandwichTestBuilder {

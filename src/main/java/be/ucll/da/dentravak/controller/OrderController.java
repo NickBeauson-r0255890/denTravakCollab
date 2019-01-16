@@ -1,7 +1,7 @@
-package controller;
+package be.ucll.da.dentravak.controller;
 
-import db.OrderRepository;
-import model.SandwichOrder;
+import be.ucll.da.dentravak.db.OrderRepository;
+import be.ucll.da.dentravak.model.SandwichOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

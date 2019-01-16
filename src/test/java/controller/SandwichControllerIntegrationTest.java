@@ -1,9 +1,9 @@
 package controller;
 
 
-import application.Application;
-import db.SandwichRepository;
-import model.Sandwich;
+import be.ucll.da.dentravak.Application;
+import be.ucll.da.dentravak.db.SandwichRepository;
+import be.ucll.da.dentravak.model.Sandwich;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

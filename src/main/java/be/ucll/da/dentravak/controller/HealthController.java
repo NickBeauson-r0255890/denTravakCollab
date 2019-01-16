@@ -1,4 +1,4 @@
-package controller;
+package be.ucll.da.dentravak.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

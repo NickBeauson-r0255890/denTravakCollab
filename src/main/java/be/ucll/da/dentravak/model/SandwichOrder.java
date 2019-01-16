@@ -1,4 +1,4 @@
-package model;
+package be.ucll.da.dentravak.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

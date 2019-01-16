@@ -1,6 +1,6 @@
-package db;
+package be.ucll.da.dentravak.db;
 
-import model.Sandwich;
+import be.ucll.da.dentravak.model.Sandwich;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;

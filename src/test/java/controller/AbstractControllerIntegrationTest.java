@@ -1,7 +1,7 @@
 package controller;
 
 
-import application.Application;
+import be.ucll.da.dentravak.Application;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.runner.RunWith;

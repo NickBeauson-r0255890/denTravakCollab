@@ -1,4 +1,4 @@
-package model;
+package be.ucll.da.dentravak.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
